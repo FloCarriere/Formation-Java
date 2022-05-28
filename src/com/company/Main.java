@@ -45,8 +45,14 @@ public class Main {
         System.out.println("Mars a effectuée " + mars.rotation(-684) + " tour(s) sur elle même");
         System.out.println("Venus a effectuée " + venus.rotation(1250) + " tour(s) sur elle même");
 
-        mars.accueillirVaisseau(8);
-        mars.accueillirVaisseau("FREGATE");
+        Vaisseau nouveauVaisseau = new Vaisseau();
+        nouveauVaisseau.type = "FREGATE";
+        nouveauVaisseau.nombrePassagers = 9;
+        mars.accueillirVaisseau(nouveauVaisseau);
+        Vaisseau autreVaisseau= new Vaisseau();
+        autreVaisseau.type = "CROISEUR";
+        autreVaisseau.nombrePassagers = 42;
+        mars.accueillirVaisseau(autreVaisseau);
         System.out.println("Le nombre d'humain ayant deja séjourné sur Mars est " + mars.totalVisiteurs);
 
         Atmosphere atmosphereUranus = new Atmosphere();
