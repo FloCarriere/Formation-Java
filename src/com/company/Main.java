@@ -62,5 +62,7 @@ public class Main {
         uranus.atmosphere = atmosphereUranus;
 
         System.out.println(uranus.atmosphere.tauxHydrogene);
+        System.out.println("Forme d'une planete : " + Planete.forme);
+        System.out.println("Forme de Mars : " + mars.forme);
     }
 }
