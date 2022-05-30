@@ -9,6 +9,11 @@ public class Planete {
         Atmosphere atmosphere;
         Vaisseau vaisseauActuellementAccoste;
         static String forme = "Sphérique";
+        static int nbPlanetesDecouvertes;
+
+        Planete(){
+                nbPlanetesDecouvertes++;
+        }
 
 
         int revolution(int angle){
