@@ -11,10 +11,10 @@ public class Planete {
         static String forme = "Sphérique";
         static int nbPlanetesDecouvertes;
 
-        Planete(){
+        Planete(String nom){
+                this.nom = nom;
                 nbPlanetesDecouvertes++;
         }
-
 
         int revolution(int angle){
                 System.out.println("Je suis la planète " + this.nom + " et je tourne autour de mon étoile.");

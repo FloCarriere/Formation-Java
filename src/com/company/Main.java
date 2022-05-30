@@ -3,43 +3,32 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Planete mercure = new Planete();
-        mercure.nom = "Mercure";
+        Planete mercure = new Planete("Mercure");
         mercure.matiere = "Tellurique";
         mercure.diametre = 4880;
-        Planete venus = new Planete();
-        venus.nom = "Venus";
+        Planete venus = new Planete("Venus");
         venus.diametre = 12100;
         venus.matiere = "Tellurique";
-        Planete terre = new Planete();
-        terre.nom = "Terre";
+        Planete terre = new Planete("Terre");
         terre.diametre = 12756;
         terre.matiere = "Tellurique";
-        Planete mars = new Planete();
-        mars.nom = "Mars";
+        Planete mars = new Planete("Mars");
         mars.diametre = 6792;
         mars.matiere = "Tellurique";
-        Planete jupiter = new Planete();
-        jupiter.nom = "Jupiter";
+        Planete jupiter = new Planete("Jupiter");
         jupiter.diametre = 142984;
         jupiter.matiere = "Gazeuse";
-        Planete saturne = new Planete();
-        saturne.nom = "Saturne";
+        Planete saturne = new Planete("Saturne");
         saturne.diametre = 120536;
         saturne.matiere = "Gazeuse";
-        Planete uranus = new Planete();
-        uranus.nom = "Uranus";
+        Planete uranus = new Planete("Uranus");
         uranus.diametre = 51118;
         uranus.matiere = "Gazeuse";
-        Planete neptune = new Planete();
-        neptune.nom = "Neptune";
+        Planete neptune = new Planete("Neptune");
         neptune.diametre = 49532;
         neptune.matiere = "Gazeuse";
 
         System.out.println(jupiter.nom + " est une planète " + jupiter.matiere + " avec un diamètre de " + jupiter.diametre + " kilomètres.");
-
-        Planete test = new Planete();
-        System.out.println(test.nom + " - " + test.diametre);
 
         System.out.println("Neptune a effectée " + neptune.revolution(-3542) + " tour(s) autour de son étoile");
         System.out.println("Mars a effectuée " + mars.rotation(-684) + " tour(s) sur elle même");
