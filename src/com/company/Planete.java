@@ -34,4 +34,11 @@ public class Planete {
 
         }
 
+        static String expansion (double distance){
+                if(distance<14)
+                        return "Oh la la mais c'est super rapide !";
+                else
+                        return "Je rêve ou c'est plus rapide que la lumière";
+        }
+
 }

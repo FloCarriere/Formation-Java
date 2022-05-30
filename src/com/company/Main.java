@@ -3,10 +3,10 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Planete mercure=new Planete();
-        mercure.nom="Mercure";
-        mercure.matiere="Tellurique";
-        mercure.diametre=4880;
+        Planete mercure = new Planete();
+        mercure.nom = "Mercure";
+        mercure.matiere = "Tellurique";
+        mercure.diametre = 4880;
         Planete venus = new Planete();
         venus.nom = "Venus";
         venus.diametre = 12100;
@@ -36,12 +36,12 @@ public class Main {
         neptune.diametre = 49532;
         neptune.matiere = "Gazeuse";
 
-        System.out.println(jupiter.nom+" est une planète "+jupiter.matiere+" avec un diamètre de "+jupiter.diametre+" kilomètres.");
+        System.out.println(jupiter.nom + " est une planète " + jupiter.matiere + " avec un diamètre de " + jupiter.diametre + " kilomètres.");
 
         Planete test = new Planete();
-        System.out.println(test.nom +" - " + test.diametre);
+        System.out.println(test.nom + " - " + test.diametre);
 
-        System.out.println("Neptune a effectée " + neptune.revolution(-3542)+ " tour(s) autour de son étoile");
+        System.out.println("Neptune a effectée " + neptune.revolution(-3542) + " tour(s) autour de son étoile");
         System.out.println("Mars a effectuée " + mars.rotation(-684) + " tour(s) sur elle même");
         System.out.println("Venus a effectuée " + venus.rotation(1250) + " tour(s) sur elle même");
 
@@ -49,7 +49,7 @@ public class Main {
         nouveauVaisseau.type = "FREGATE";
         nouveauVaisseau.nombrePassagers = 9;
         mars.accueillirVaisseau(nouveauVaisseau);
-        Vaisseau autreVaisseau= new Vaisseau();
+        Vaisseau autreVaisseau = new Vaisseau();
         autreVaisseau.type = "CROISEUR";
         autreVaisseau.nombrePassagers = 42;
         mars.accueillirVaisseau(autreVaisseau);
@@ -62,7 +62,9 @@ public class Main {
         uranus.atmosphere = atmosphereUranus;
 
         System.out.println(uranus.atmosphere.tauxHydrogene);
-        System.out.println("Forme d'une planete : " + Planete.forme);
-        System.out.println("Forme de Mars : " + mars.forme);
+
+        System.out.println(Planete.expansion(10.5));
+        System.out.println(Planete.expansion(14.2));
+
     }
 }
