@@ -67,5 +67,6 @@ public class Main {
 
         mars.accueillirVaisseau(vaisseauMonde);
         mars.accueillirVaisseau(chasseur);
+
     }
 }
