@@ -3,32 +3,24 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Planete mercure = new Planete("Mercure");
-        mercure.matiere = "Tellurique";
+        PlaneteTellurique mercure = new PlaneteTellurique("Mercure");
         mercure.diametre = 4880;
-        Planete venus = new Planete("Venus");
+        PlaneteTellurique venus = new PlaneteTellurique("Venus");
         venus.diametre = 12100;
-        venus.matiere = "Tellurique";
-        Planete terre = new Planete("Terre");
+        PlaneteTellurique terre = new PlaneteTellurique("Terre");
         terre.diametre = 12756;
-        terre.matiere = "Tellurique";
-        Planete mars = new Planete("Mars");
+        PlaneteTellurique mars = new PlaneteTellurique("Mars");
         mars.diametre = 6792;
-        mars.matiere = "Tellurique";
-        Planete jupiter = new Planete("Jupiter");
+        PlaneteGazeuse jupiter = new PlaneteGazeuse("Jupiter");
         jupiter.diametre = 142984;
-        jupiter.matiere = "Gazeuse";
-        Planete saturne = new Planete("Saturne");
+        PlaneteGazeuse saturne = new PlaneteGazeuse("Saturne");
         saturne.diametre = 120536;
-        saturne.matiere = "Gazeuse";
-        Planete uranus = new Planete("Uranus");
+        PlaneteGazeuse uranus = new PlaneteGazeuse("Uranus");
         uranus.diametre = 51118;
-        uranus.matiere = "Gazeuse";
-        Planete neptune = new Planete("Neptune");
+        PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
-        neptune.matiere = "Gazeuse";
 
-        System.out.println(jupiter.nom + " est une planète " + jupiter.matiere + " avec un diamètre de " + jupiter.diametre + " kilomètres.");
+        System.out.println(jupiter.nom + " est une planète avec un diamètre de " + jupiter.diametre + " kilomètres.");
 
         System.out.println("Neptune a effectée " + neptune.revolution(-3542) + " tour(s) autour de son étoile");
         System.out.println("Mars a effectuée " + mars.rotation(-684) + " tour(s) sur elle même");
@@ -37,11 +29,10 @@ public class Main {
         Vaisseau nouveauVaisseau = new Vaisseau();
         nouveauVaisseau.type = "FREGATE";
         nouveauVaisseau.nombrePassagers = 9;
-        mars.accueillirVaisseau(nouveauVaisseau);
         Vaisseau autreVaisseau = new Vaisseau();
         autreVaisseau.type = "CROISEUR";
         autreVaisseau.nombrePassagers = 42;
-        mars.accueillirVaisseau(autreVaisseau);
+
         System.out.println("Le nombre d'humain ayant deja séjourné sur Mars est " + mars.totalVisiteurs);
 
         Atmosphere atmosphereUranus = new Atmosphere();
@@ -73,5 +64,8 @@ public class Main {
         vaisseauMonde.desactiverBouclier();
         System.out.println("Résistance du bouclier du " + vaisseauMonde.type + " = " +vaisseauMonde.resistanceDuBouclier);
         System.out.println("Le blindage du " + vaisseauMonde.type + " = " + vaisseauMonde.blindage);
+
+        mars.accueillirVaisseau(vaisseauMonde);
+        mars.accueillirVaisseau(chasseur);
     }
 }
