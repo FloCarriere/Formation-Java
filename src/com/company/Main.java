@@ -48,19 +48,19 @@ public class Main {
 
         System.out.println(Planete.nbPlanetesDecouvertes);
 
-        VaisseauDeGuerre chasseur = new VaisseauDeGuerre();
+        Vaisseau chasseur = new VaisseauDeGuerre();
         chasseur.type = "CHASSEUR";
         chasseur.blindage = 156;
         chasseur.resistanceDuBouclier = 2;
 
-        VaisseauCivil vaisseauMonde = new VaisseauCivil();
+        Vaisseau vaisseauMonde = new VaisseauCivil();
         vaisseauMonde.type = "VAISSEAU-MONDE";
         vaisseauMonde.blindage = 4784;
         vaisseauMonde.resistanceDuBouclier = 30;
 
         vaisseauMonde.activerBouclier();
         chasseur.activerBouclier();
-        chasseur.attaque(vaisseauMonde, "lasers photoniques", 3);
+        ((VaisseauDeGuerre) chasseur).attaque(vaisseauMonde, "lasers photoniques", 3);
         vaisseauMonde.desactiverBouclier();
         System.out.println("Résistance du bouclier du " + vaisseauMonde.type + " = " +vaisseauMonde.resistanceDuBouclier);
         System.out.println("Le blindage du " + vaisseauMonde.type + " = " + vaisseauMonde.blindage);

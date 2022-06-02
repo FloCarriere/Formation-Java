@@ -19,4 +19,10 @@ public class VaisseauDeGuerre extends Vaisseau{
         System.out.println("Désactivation des armes d'un vaisseau de type " +type);
     }
 
+    void activerBouclier(){
+        System.out.println("Activation du bouclier d'un vaisseau de type " + type);
+        this.desactiverArmes();
+    }
+
+
 }
