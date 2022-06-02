@@ -1,6 +1,6 @@
 package com.company;
 
-public class Planete {
+public abstract class Planete {
 
         String nom;
         long diametre;

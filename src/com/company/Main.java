@@ -26,11 +26,9 @@ public class Main {
         System.out.println("Mars a effectuée " + mars.rotation(-684) + " tour(s) sur elle même");
         System.out.println("Venus a effectuée " + venus.rotation(1250) + " tour(s) sur elle même");
 
-        Vaisseau nouveauVaisseau = new Vaisseau();
-        nouveauVaisseau.type = "FREGATE";
+        Vaisseau nouveauVaisseau = new VaisseauDeGuerre("FREGATE");
         nouveauVaisseau.nombrePassagers = 9;
-        Vaisseau autreVaisseau = new Vaisseau();
-        autreVaisseau.type = "CROISEUR";
+        Vaisseau autreVaisseau = new VaisseauDeGuerre("CROISEUR");
         autreVaisseau.nombrePassagers = 42;
 
         System.out.println("Le nombre d'humain ayant deja séjourné sur Mars est " + mars.totalVisiteurs);
@@ -48,13 +46,11 @@ public class Main {
 
         System.out.println(Planete.nbPlanetesDecouvertes);
 
-        Vaisseau chasseur = new VaisseauDeGuerre();
-        chasseur.type = "CHASSEUR";
+        Vaisseau chasseur = new VaisseauDeGuerre("CHASSEUR");
         chasseur.blindage = 156;
         chasseur.resistanceDuBouclier = 2;
 
-        Vaisseau vaisseauMonde = new VaisseauCivil();
-        vaisseauMonde.type = "VAISSEAU-MONDE";
+        Vaisseau vaisseauMonde = new VaisseauCivil("VAISSEAU-MONDE");
         vaisseauMonde.blindage = 4784;
         vaisseauMonde.resistanceDuBouclier = 30;
 
@@ -68,5 +64,23 @@ public class Main {
         mars.accueillirVaisseau(vaisseauMonde);
         mars.accueillirVaisseau(chasseur);
 
+        Vaisseau chasseurSurTerre = new VaisseauDeGuerre("CHASSEUR");
+        terre.accueillirVaisseau(chasseurSurTerre);
+        System.out.println("Le chasseur a rejeté " + chasseurSurTerre.emporterCargaison(20) + " tonnes.");
+        Vaisseau fregateSurTerre = new VaisseauDeGuerre("FREGATE");
+        fregateSurTerre.nombrePassagers=100;
+        terre.accueillirVaisseau(fregateSurTerre);
+        System.out.println("La fregate a rejeté "+fregateSurTerre.emporterCargaison(45)+" tonnes.");
+        System.out.println("La fregate a rejeté "+fregateSurTerre.emporterCargaison(12)+" tonnes.");
+
+        Vaisseau fregateSurTerre2 = new VaisseauDeGuerre("FREGATE");
+        fregateSurTerre2.nombrePassagers=14;
+        terre.accueillirVaisseau(fregateSurTerre2);
+        System.out.println("La fregate 2 a rejeté "+fregateSurTerre2.emporterCargaison(30)+" tonnes.");
+
+        Vaisseau vaisseauMondeSurTerre = new VaisseauCivil("VAISSEAU-MONDE");
+        terre.accueillirVaisseau(vaisseauMondeSurTerre);
+        System.out.println("Le vaisseau-monde a rejeté "+vaisseauMondeSurTerre.emporterCargaison(1560)+" tonnes.");
+        System.out.println("Le vaisseau-monde a rejeté "+vaisseauMondeSurTerre.emporterCargaison(600)+" tonnes.");
     }
 }
