@@ -36,12 +36,22 @@ public class Main {
         System.out.println("Le nombre d'humain ayant deja séjourné sur Mars est " + mars.totalVisiteurs);
 
         Atmosphere atmosphereUranus = new Atmosphere();
-        atmosphereUranus.tauxHydrogene = 83;
-        atmosphereUranus.tauxHelium = 15;
-        atmosphereUranus.tauxMethane = 2.5F;
+        atmosphereUranus.tauxHydrogene = new Float(83f);
+        atmosphereUranus.tauxHelium = new Float(15f);
+        atmosphereUranus.tauxMethane = new Float(2.5F);
+        atmosphereUranus.tauxAzote = new Float(0.0f);
         uranus.atmosphere = atmosphereUranus;
 
-        System.out.println(uranus.atmosphere.tauxHydrogene);
+        if (uranus.atmosphere.tauxHydrogene != null)
+        System.out.println("Hydrogene : " + uranus.atmosphere.tauxHydrogene);
+        if (uranus.atmosphere.tauxHelium != null)
+            System.out.println("Helium : " + uranus.atmosphere.tauxHelium);
+        if (uranus.atmosphere.tauxMethane != null)
+            System.out.println("Methane : " + uranus.atmosphere.tauxMethane);
+        if (uranus.atmosphere.tauxAzote != null)
+            System.out.println("Azote : " + uranus.atmosphere.tauxAzote);
+        if (uranus.atmosphere.tauxCO2 != null)
+            System.out.println("CO2 : " + uranus.atmosphere.tauxCO2);
 
         System.out.println(Planete.expansion(10.5));
         System.out.println(Planete.expansion(14.2));
