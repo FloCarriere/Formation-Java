@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -47,40 +49,49 @@ public class Main {
         System.out.println(Planete.nbPlanetesDecouvertes);
 
         Vaisseau chasseur = new VaisseauDeGuerre("CHASSEUR");
-        chasseur.blindage = 156;
-        chasseur.resistanceDuBouclier = 2;
+        Vaisseau fregate = new VaisseauDeGuerre("FREGATE");
+        fregate.nombrePassagers = 24;
+        Vaisseau croiseur = new VaisseauDeGuerre("CROISEUR");
+        Vaisseau cargo = new VaisseauCivil("CARGO");
+        Vaisseau vaisseauMonde = new VaisseauDeGuerre("VAISSEAU-MONDE");
 
-        Vaisseau vaisseauMonde = new VaisseauCivil("VAISSEAU-MONDE");
-        vaisseauMonde.blindage = 4784;
-        vaisseauMonde.resistanceDuBouclier = 30;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quel type de vaisseau :");
+        String vaisseauSelectionne = sc.nextLine();
+        System.out.println("Quelle planete :");
+        String nomPlanete = sc.nextLine();
+        System.out.println("Quel tonnage :");
+        int tonnage = sc.nextInt();
 
-        vaisseauMonde.activerBouclier();
-        chasseur.activerBouclier();
-        ((VaisseauDeGuerre) chasseur).attaque(vaisseauMonde, "lasers photoniques", 3);
-        vaisseauMonde.desactiverBouclier();
-        System.out.println("Résistance du bouclier du " + vaisseauMonde.type + " = " +vaisseauMonde.resistanceDuBouclier);
-        System.out.println("Le blindage du " + vaisseauMonde.type + " = " + vaisseauMonde.blindage);
+        Vaisseau vaisseau = null;
+        switch (vaisseauSelectionne){
+            case "CHASSEUR" : vaisseau = chasseur;
+            break;
+            case "FREGATE" : vaisseau = fregate;
+                break;
+            case "CROISEUR" : vaisseau = croiseur;
+                break;
+            case "CARGO" : vaisseau = cargo;
+                break;
+            case "VAISSEAU-MONDE" : vaisseau = vaisseauMonde;
+                break;
+            default:
+                System.out.println("vaisseau inexistant");
+        }
+        PlaneteTellurique planete = null;
+        switch (nomPlanete){
+            case "VENUS": planete = venus; break;
+            case "MERCURE": planete = mercure; break;
+            case "TERRE": planete = terre; break;
+            case "MARS": planete = mars; break;
+            default:
+                System.out.println("planete inexistante");
+        }
+        planete.accueillirVaisseau(vaisseau);
+        int rejet = vaisseau.emporterCargaison(tonnage);
 
-        mars.accueillirVaisseau(vaisseauMonde);
-        mars.accueillirVaisseau(chasseur);
+        System.out.println("Le rejet est de " + rejet);
 
-        Vaisseau chasseurSurTerre = new VaisseauDeGuerre("CHASSEUR");
-        terre.accueillirVaisseau(chasseurSurTerre);
-        System.out.println("Le chasseur a rejeté " + chasseurSurTerre.emporterCargaison(20) + " tonnes.");
-        Vaisseau fregateSurTerre = new VaisseauDeGuerre("FREGATE");
-        fregateSurTerre.nombrePassagers=100;
-        terre.accueillirVaisseau(fregateSurTerre);
-        System.out.println("La fregate a rejeté "+fregateSurTerre.emporterCargaison(45)+" tonnes.");
-        System.out.println("La fregate a rejeté "+fregateSurTerre.emporterCargaison(12)+" tonnes.");
 
-        Vaisseau fregateSurTerre2 = new VaisseauDeGuerre("FREGATE");
-        fregateSurTerre2.nombrePassagers=14;
-        terre.accueillirVaisseau(fregateSurTerre2);
-        System.out.println("La fregate 2 a rejeté "+fregateSurTerre2.emporterCargaison(30)+" tonnes.");
-
-        Vaisseau vaisseauMondeSurTerre = new VaisseauCivil("VAISSEAU-MONDE");
-        terre.accueillirVaisseau(vaisseauMondeSurTerre);
-        System.out.println("Le vaisseau-monde a rejeté "+vaisseauMondeSurTerre.emporterCargaison(1560)+" tonnes.");
-        System.out.println("Le vaisseau-monde a rejeté "+vaisseauMondeSurTerre.emporterCargaison(600)+" tonnes.");
     }
 }
