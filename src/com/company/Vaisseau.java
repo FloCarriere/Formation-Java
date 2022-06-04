@@ -1,7 +1,7 @@
 package com.company;
 
 public abstract class Vaisseau {
-    String type;
+    TypeVaisseau type;
     int nombrePassagers;
     int blindage;
     int resistanceDuBouclier;

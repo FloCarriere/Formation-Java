@@ -3,15 +3,15 @@ package com.company;
 public class VaisseauDeGuerre extends Vaisseau{
     boolean armesDesactivees;
 
-    VaisseauDeGuerre(String type){
+    VaisseauDeGuerre(TypeVaisseau type){
         this.type = type;
-        if(type.equals("CHASSEUR")){
+        if(type==TypeVaisseau.CHASSEUR){
             tonnageMax = 0;
         }
-        else if (type.equals("FREGATE")){
+        else if (type==TypeVaisseau.FREGATE){
             tonnageMax= 50;
         }
-        else if (type.equals("CROISEUR")){
+        else if (type==TypeVaisseau.CROISEUR){
             tonnageMax=100;
         }
     }

@@ -2,12 +2,12 @@ package com.company;
 
 public class VaisseauCivil extends Vaisseau{
 
-    VaisseauCivil(String type){
+    VaisseauCivil(TypeVaisseau type){
         this.type = type;
-        if(type.equals("CARGO")){
+        if(type==TypeVaisseau.CARGO){
             tonnageMax = 500;
         }
-        else if (type.equals("VAISSEAU-MONDE")){
+        else if (type==TypeVaisseau.VAISSEAUMONDE){
             tonnageMax= 2000;
         }
     }

@@ -28,9 +28,9 @@ public class Main {
         System.out.println("Mars a effectuée " + mars.rotation(-684) + " tour(s) sur elle même");
         System.out.println("Venus a effectuée " + venus.rotation(1250) + " tour(s) sur elle même");
 
-        Vaisseau nouveauVaisseau = new VaisseauDeGuerre("FREGATE");
+        Vaisseau nouveauVaisseau = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
         nouveauVaisseau.nombrePassagers = 9;
-        Vaisseau autreVaisseau = new VaisseauDeGuerre("CROISEUR");
+        Vaisseau autreVaisseau = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
         autreVaisseau.nombrePassagers = 42;
 
         System.out.println("Le nombre d'humain ayant deja séjourné sur Mars est " + mars.totalVisiteurs);
@@ -58,12 +58,12 @@ public class Main {
 
         System.out.println(Planete.nbPlanetesDecouvertes);
 
-        Vaisseau chasseur = new VaisseauDeGuerre("CHASSEUR");
-        Vaisseau fregate = new VaisseauDeGuerre("FREGATE");
+        Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
         fregate.nombrePassagers = 24;
-        Vaisseau croiseur = new VaisseauDeGuerre("CROISEUR");
-        Vaisseau cargo = new VaisseauCivil("CARGO");
-        Vaisseau vaisseauMonde = new VaisseauDeGuerre("VAISSEAU-MONDE");
+        Vaisseau croiseur = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
+        Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
+        Vaisseau vaisseauMonde = new VaisseauDeGuerre(TypeVaisseau.VAISSEAUMONDE);
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Quel type de vaisseau :");
@@ -72,18 +72,19 @@ public class Main {
         String nomPlanete = sc.nextLine();
         System.out.println("Quel tonnage :");
         int tonnage = sc.nextInt();
+        TypeVaisseau typeVaisseau = TypeVaisseau.valueOf(vaisseauSelectionne);
 
         Vaisseau vaisseau = null;
-        switch (vaisseauSelectionne){
-            case "CHASSEUR" : vaisseau = chasseur;
+        switch (typeVaisseau){
+            case CHASSEUR : vaisseau = chasseur;
             break;
-            case "FREGATE" : vaisseau = fregate;
+            case FREGATE : vaisseau = fregate;
                 break;
-            case "CROISEUR" : vaisseau = croiseur;
+            case CROISEUR : vaisseau = croiseur;
                 break;
-            case "CARGO" : vaisseau = cargo;
+            case CARGO : vaisseau = cargo;
                 break;
-            case "VAISSEAU-MONDE" : vaisseau = vaisseauMonde;
+            case VAISSEAUMONDE : vaisseau = vaisseauMonde;
                 break;
             default:
                 System.out.println("vaisseau inexistant");
