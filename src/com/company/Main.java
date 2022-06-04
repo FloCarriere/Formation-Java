@@ -58,6 +58,21 @@ public class Main {
 
         System.out.println(Planete.nbPlanetesDecouvertes);
 
+        Vaisseau chasseur2 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        chasseur2.nombrePassagers = 4;
+        chasseur2.blindage=156;
+        chasseur2.resistanceDuBouclier=2;
+        Vaisseau chasseur3 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        chasseur3.nombrePassagers = 5;
+        chasseur3.blindage=156;
+        chasseur3.resistanceDuBouclier=2;
+        Vaisseau cargo2 = new VaisseauCivil(TypeVaisseau.CARGO);
+        cargo2.nombrePassagers = 1001;
+        cargo2.blindage=1520;
+        cargo2.resistanceDuBouclier=20;
+
+        terre.accueillirVaisseaux(chasseur2, chasseur3, cargo2);
+
         Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
         Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
         fregate.nombrePassagers = 24;
@@ -118,7 +133,7 @@ public class Main {
             if (!planete.restePlaceDisponible()) {
                 System.out.println("Le vaisseau ne pas se poser sur la planète par manque de place dans la baie.");
             } else {
-                planete.accueillirVaisseau(vaisseau);
+                planete.accueillirVaisseaux(vaisseau);
                 int rejet = vaisseau.emporterCargaison(tonnage);
 
                 System.out.println("Le rejet est de " + rejet);
