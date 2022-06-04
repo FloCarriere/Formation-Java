@@ -1,5 +1,5 @@
 package com.company;
 
 public interface Habitable {
-    Vaisseau accueillirVaisseau(Vaisseau vaisseau);
+    void accueillirVaisseau(Vaisseau vaisseau);
 }

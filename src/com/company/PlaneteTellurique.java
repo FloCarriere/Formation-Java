@@ -3,26 +3,35 @@ package com.company;
 public class PlaneteTellurique extends Planete implements Habitable{
 
     int totalVisiteurs;
-    Vaisseau vaisseauActuellementAccoste;
 
-    PlaneteTellurique(String nom) {
+    Vaisseau[] baieAccostage;
+
+    PlaneteTellurique(String nom, int tailleBaie) {
         super(nom);
+        this.baieAccostage = new Vaisseau[tailleBaie];
     }
 
-    public Vaisseau accueillirVaisseau(Vaisseau vaisseau){
+    public void accueillirVaisseau(Vaisseau vaisseau){
         if (vaisseau instanceof VaisseauDeGuerre){
             ((VaisseauDeGuerre) vaisseau).desactiverArmes();
         }
-        totalVisiteurs = totalVisiteurs + vaisseau.nombrePassagers;
-        if (vaisseauActuellementAccoste==null){
-            System.out.println("Aucun vaisseau ne s'en va");
-        }
-        else{
-            System.out.println("Un vaisseau de type " + vaisseauActuellementAccoste.type + " doit s'en aller.");
-        }
-        Vaisseau vaisseauPrecedent=vaisseauActuellementAccoste;
-        vaisseauActuellementAccoste=vaisseau;
-        return vaisseauPrecedent;
+        totalVisiteurs=totalVisiteurs+vaisseau.nombrePassagers;
 
+        for(int i=0; i<baieAccostage.length;i++){
+            if(baieAccostage[i]==null){
+                baieAccostage[i]=vaisseau;
+                break;
+            }
+        }
+
+    }
+
+    boolean restePlaceDisponible(){
+        for(int i=0; i<baieAccostage.length;i++){
+            if(baieAccostage[i]==null){
+                return true;
+            }
+        }
+        return false;
     }
 }
