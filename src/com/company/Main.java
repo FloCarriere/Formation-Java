@@ -1,26 +1,40 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        Galaxie systemeSolaire = new Galaxie();
+        systemeSolaire.nom = "Système solaire";
+
+
         PlaneteTellurique mercure = new PlaneteTellurique("Mercure",1);
         mercure.diametre = 4880;
+        systemeSolaire.planetes.add(mercure);
         PlaneteTellurique venus = new PlaneteTellurique("Venus", 2);
         venus.diametre = 12100;
+        systemeSolaire.planetes.add(venus);
         PlaneteTellurique terre = new PlaneteTellurique("Terre", 10);
         terre.diametre = 12756;
+        systemeSolaire.planetes.add(terre);
         PlaneteTellurique mars = new PlaneteTellurique("Mars", 3);
         mars.diametre = 6792;
+        systemeSolaire.planetes.add(mars);
         PlaneteGazeuse jupiter = new PlaneteGazeuse("Jupiter");
         jupiter.diametre = 142984;
+        systemeSolaire.planetes.add(jupiter);
         PlaneteGazeuse saturne = new PlaneteGazeuse("Saturne");
         saturne.diametre = 120536;
+        systemeSolaire.planetes.add(saturne);
         PlaneteGazeuse uranus = new PlaneteGazeuse("Uranus");
         uranus.diametre = 51118;
+        systemeSolaire.planetes.add(uranus);
         PlaneteGazeuse neptune = new PlaneteGazeuse("Neptune");
         neptune.diametre = 49532;
+        systemeSolaire.planetes.add(neptune);
 
         System.out.println(jupiter.nom + " est une planète avec un diamètre de " + jupiter.diametre + " kilomètres.");
 
@@ -80,14 +94,15 @@ public class Main {
         Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
         Vaisseau vaisseauMonde = new VaisseauDeGuerre(TypeVaisseau.VAISSEAUMONDE);
 
-        String recommencer;
+        Boolean recommencer=true;
         Scanner sc = new Scanner(System.in);
-        do {
+        while (recommencer) {
 
             System.out.println("Quel type de vaisseau :");
             String vaisseauSelectionne = sc.nextLine();
-            System.out.println("Quelle planete :");
-            String nomPlanete = sc.nextLine();
+            System.out.println("Sur quelle planete tellurique en partant du soleil du système solaire voulez vous vous poser : 1, 2, 3 ou 4");
+            int nomPlanete = sc.nextInt();
+            sc.nextLine();
             System.out.println("Quel tonnage :");
             int tonnage = sc.nextInt();
             sc.nextLine();
@@ -113,23 +128,16 @@ public class Main {
                 default:
                     System.out.println("vaisseau inexistant");
             }
-            PlaneteTellurique planete = null;
-            switch (nomPlanete) {
-                case "VENUS":
-                    planete = venus;
-                    break;
-                case "MERCURE":
-                    planete = mercure;
-                    break;
-                case "TERRE":
-                    planete = terre;
-                    break;
-                case "MARS":
-                    planete = mars;
-                    break;
-                default:
-                    System.out.println("planete inexistante");
+
+            Planete p=systemeSolaire.planetes.get(nomPlanete-1);
+
+            if (p instanceof PlaneteGazeuse){
+                System.out.println("La planete selectionnée n'est pas une planète tellurique. Recommencer");
+                continue;
             }
+
+            PlaneteTellurique planete = (PlaneteTellurique) p;
+
             if (!planete.restePlaceDisponible(vaisseau)) {
                 System.out.println("Le vaisseau ne pas se poser sur la planète par manque de place dans la baie.");
             } else {
@@ -139,8 +147,13 @@ public class Main {
                 System.out.println("Le rejet est de " + rejet);
             }
             System.out.println("Voulez vous recommencer");
-            recommencer=sc.nextLine();
-        }while(recommencer.equalsIgnoreCase("oui"));
+            recommencer=sc.nextLine().equalsIgnoreCase("oui");
+        }
+
+
+
+
+
 
 
     }
