@@ -38,8 +38,8 @@ public class Main {
         Atmosphere atmosphereUranus = new Atmosphere();
         atmosphereUranus.tauxHydrogene = 83f;
         atmosphereUranus.tauxHelium = 15f;
-        atmosphereUranus.tauxMethane = new Float(2.5F);
-        atmosphereUranus.tauxAzote = new Float(0.0f);
+        atmosphereUranus.tauxMethane = 2.5F;
+        atmosphereUranus.tauxAzote = 0.0f;
         uranus.atmosphere = atmosphereUranus;
 
         if (uranus.atmosphere.tauxHydrogene != null)
@@ -130,7 +130,7 @@ public class Main {
                 default:
                     System.out.println("planete inexistante");
             }
-            if (!planete.restePlaceDisponible()) {
+            if (!planete.restePlaceDisponible(vaisseau)) {
                 System.out.println("Le vaisseau ne pas se poser sur la planète par manque de place dans la baie.");
             } else {
                 planete.accueillirVaisseaux(vaisseau);
