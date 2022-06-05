@@ -1,8 +1,19 @@
-package com.company;
+package com.espacex.decouverte;
 
-import java.util.ArrayList;
+import com.espacex.decouverte.enginsspatiaux.TypeVaisseau;
+import com.espacex.decouverte.enginsspatiaux.Vaisseau;
+import com.espacex.decouverte.enginsspatiaux.VaisseauCivil;
+import com.espacex.decouverte.enginsspatiaux.VaisseauDeGuerre;
+import com.espacex.decouverte.objetsastro.*;
+
 import java.util.Map;
 import java.util.Scanner;
+
+import static com.espacex.decouverte.enginsspatiaux.TypeVaisseau.CARGO;
+import static com.espacex.decouverte.enginsspatiaux.TypeVaisseau.CHASSEUR;
+import static com.espacex.decouverte.enginsspatiaux.TypeVaisseau.VAISSEAUMONDE;
+import static com.espacex.decouverte.enginsspatiaux.TypeVaisseau.FREGATE;
+import static com.espacex.decouverte.enginsspatiaux.TypeVaisseau.CROISEUR;
 
 public class Main {
 
@@ -49,9 +60,9 @@ public class Main {
         System.out.println("Mars a effectuée " + mars.rotation(-684) + " tour(s) sur elle même");
         System.out.println("Venus a effectuée " + venus.rotation(1250) + " tour(s) sur elle même");
 
-        Vaisseau nouveauVaisseau = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
+        Vaisseau nouveauVaisseau = new VaisseauDeGuerre(FREGATE);
         nouveauVaisseau.nombrePassagers = 9;
-        Vaisseau autreVaisseau = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
+        Vaisseau autreVaisseau = new VaisseauDeGuerre(CROISEUR);
         autreVaisseau.nombrePassagers = 42;
 
         System.out.println("Le nombre d'humain ayant deja séjourné sur Mars est " + mars.totalVisiteurs);
@@ -80,27 +91,27 @@ public class Main {
             System.out.println("La planete suivante est "+nextPlanete.nom);
         }
 
-        Vaisseau chasseur2 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        Vaisseau chasseur2 = new VaisseauDeGuerre(CHASSEUR);
         chasseur2.nombrePassagers = 4;
         chasseur2.blindage=156;
         chasseur2.resistanceDuBouclier=2;
-        Vaisseau chasseur3 = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
+        Vaisseau chasseur3 = new VaisseauDeGuerre(CHASSEUR);
         chasseur3.nombrePassagers = 5;
         chasseur3.blindage=156;
         chasseur3.resistanceDuBouclier=2;
-        Vaisseau cargo2 = new VaisseauCivil(TypeVaisseau.CARGO);
+        Vaisseau cargo2 = new VaisseauCivil(CARGO);
         cargo2.nombrePassagers = 1001;
         cargo2.blindage=1520;
         cargo2.resistanceDuBouclier=20;
 
         terre.accueillirVaisseaux(chasseur2, chasseur3, cargo2);
 
-        Vaisseau chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
-        Vaisseau fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
+        Vaisseau chasseur = new VaisseauDeGuerre(CHASSEUR);
+        Vaisseau fregate = new VaisseauDeGuerre(FREGATE);
         fregate.nombrePassagers = 24;
-        Vaisseau croiseur = new VaisseauDeGuerre(TypeVaisseau.CROISEUR);
-        Vaisseau cargo = new VaisseauCivil(TypeVaisseau.CARGO);
-        Vaisseau vaisseauMonde = new VaisseauDeGuerre(TypeVaisseau.VAISSEAUMONDE);
+        Vaisseau croiseur = new VaisseauDeGuerre(CROISEUR);
+        Vaisseau cargo = new VaisseauCivil(CARGO);
+        Vaisseau vaisseauMonde = new VaisseauDeGuerre(VAISSEAUMONDE);
 
         Boolean recommencer=true;
         Scanner sc = new Scanner(System.in);

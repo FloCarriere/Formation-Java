@@ -1,4 +1,4 @@
-package com.company;
+package com.espacex.decouverte.enginsspatiaux;
 
 public enum TypeVaisseau {
     CHASSEUR ("Chasseur"),

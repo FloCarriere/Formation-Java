@@ -1,12 +1,15 @@
-package com.company;
+package com.espacex.decouverte.objetsastro;
+
+import com.espacex.decouverte.enginsspatiaux.Vaisseau;
+import com.espacex.decouverte.enginsspatiaux.VaisseauDeGuerre;
 
 public class PlaneteTellurique extends Planete implements Habitable{
 
-    int totalVisiteurs;
+    public int totalVisiteurs;
 
     Vaisseau[][] baieAccostage;
 
-    PlaneteTellurique(String nom, int tailleBaie) {
+    public PlaneteTellurique(String nom, int tailleBaie) {
         super(nom);
         this.baieAccostage = new Vaisseau[tailleBaie][tailleBaie];
     }
@@ -39,7 +42,7 @@ public class PlaneteTellurique extends Planete implements Habitable{
 
     }
 
-    boolean restePlaceDisponible(Vaisseau vaisseau){
+    public boolean restePlaceDisponible(Vaisseau vaisseau){
         int indexZone=0;
         switch (vaisseau.type){
             case CARGO :

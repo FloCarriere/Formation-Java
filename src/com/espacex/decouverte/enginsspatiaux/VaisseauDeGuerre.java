@@ -1,9 +1,9 @@
-package com.company;
+package com.espacex.decouverte.enginsspatiaux;
 
 public class VaisseauDeGuerre extends Vaisseau{
     boolean armesDesactivees;
 
-    VaisseauDeGuerre(TypeVaisseau type){
+    public VaisseauDeGuerre(TypeVaisseau type){
         this.type = type;
         if(type==TypeVaisseau.CHASSEUR){
             tonnageMax = 0;
@@ -27,7 +27,7 @@ public class VaisseauDeGuerre extends Vaisseau{
         }
     }
 
-    void desactiverArmes (){
+    public void desactiverArmes(){
         armesDesactivees = true;
         System.out.println("Désactivation des armes d'un vaisseau de type " +type);
     }
@@ -37,7 +37,7 @@ public class VaisseauDeGuerre extends Vaisseau{
         this.desactiverArmes();
     }
 
-    int emporterCargaison(int cargaison){
+    public int emporterCargaison(int cargaison){
         if (type.equals("CHASSEUR")){
             return cargaison;
         }
