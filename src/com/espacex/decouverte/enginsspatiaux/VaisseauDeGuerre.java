@@ -4,7 +4,7 @@ public class VaisseauDeGuerre extends Vaisseau{
     private boolean armesDesactivees;
 
     public VaisseauDeGuerre(TypeVaisseau type){
-        this.type = type;
+        super(type);
         if(type==TypeVaisseau.CHASSEUR){
             tonnageMax = 0;
         }
